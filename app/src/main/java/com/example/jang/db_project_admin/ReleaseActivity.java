@@ -35,7 +35,7 @@ public class ReleaseActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.release_layout);
 
-        listView = (ListView) findViewById(R.id.listview_release);
+
 
         btnaccept = (Button)findViewById(R.id.bntaccept_release);
         btncancel = (Button)findViewById(R.id.bntcancel_release);
@@ -52,6 +52,7 @@ public class ReleaseActivity extends Activity {
         SimpleDateFormat CurDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         etday.setText(CurDateFormat.format(date));
 
+        listView = (ListView) findViewById(R.id.listview_release);
         res = getResources();
         adapter = new IconTextListAdapter(this);
         listView.setAdapter(adapter);

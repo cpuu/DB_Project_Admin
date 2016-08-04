@@ -148,7 +148,7 @@
                    android:layout_height="wrap_content"
                    android:layout_weight="1"
                    android:gravity="center"
-                   android:text="택배운송번호"
+                   android:text="구매시간"
                    android:textAppearance="?android:attr/textAppearanceMedium"
                    android:textColor="#FFFF00"
                    android:background="#00ff00" android:layout_margin="2dip"/>

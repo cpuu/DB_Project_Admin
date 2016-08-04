@@ -12,21 +12,23 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 
 /**
  * Created by Jang on 2016-07-30.
  */
 public class DeliveryActivity extends Activity {
-
+    CommunicationWithServer cws;
     User user;
     IconTextListAdapter adapter;
     ListView listView;
     Resources res;
-    Button btnsearch;
-    EditText etname, etday, etnum, etbookcase, etbarcode;
+    Button btnsearch, btnjobstart;
+    EditText etname, etday, etnum, etbookcase, etbarcode,etworknum;
     View view;
 
     @Override
@@ -36,9 +38,12 @@ public class DeliveryActivity extends Activity {
 
         user = getIntent().getParcelableExtra("user");
 
+        etworknum = (EditText)findViewById(R.id.etworknum_delivery);
         etname = (EditText) findViewById(R.id.etname_delivery);
         etnum = (EditText) findViewById(R.id.etnum_delivery);
         etday = (EditText) findViewById(R.id.etday_delivery);
+
+        btnjobstart = (Button)findViewById(R.id.btnjobstart_delivery);
 
         adapter = new IconTextListAdapter(this);
         listView = (ListView) findViewById(R.id.listview_delivery);
@@ -47,6 +52,32 @@ public class DeliveryActivity extends Activity {
         Date date = new Date(System.currentTimeMillis());
         SimpleDateFormat CurDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         etday.setText(CurDateFormat.format(date));
+
+        btnjobstart.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                HashMap<String, String> input = new HashMap<String, String>();
+
+                Date date = new Date(System.currentTimeMillis());
+                SimpleDateFormat CurDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+
+                input.put("employee", etnum.getText().toString());
+                input.put("datetime", CurDateFormat.format(date));
+
+
+                cws = new CommunicationWithServer(getApplicationContext());
+                HashMap<String,String> result = cws.register_output(input);
+                String test = result.get("id_auto");
+                if (result != null) {
+                    etworknum.setText(result.get("id_auto"));
+                    Toast.makeText(getApplicationContext(), "작업을 시작하십시오", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "에러", Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+        });
 
 
         adapter.addItem(new IconTextItem(res.getDrawable(R.drawable.book),

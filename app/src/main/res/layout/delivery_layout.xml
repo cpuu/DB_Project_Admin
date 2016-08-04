@@ -108,6 +108,42 @@
                     android:text="392849" />
             </TableRow>
 
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#0000FF"
+                    android:gravity="center"
+                    android:text="작업번호"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#FFFF00" />
+
+                <EditText
+                    android:id="@+id/etworknum_delivery"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="4"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:inputType="text"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:text="" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnjobstart_delivery"
+                    android:text="작업시작"
+                    android:layout_weight="1"/>
+            </TableRow>
+
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"

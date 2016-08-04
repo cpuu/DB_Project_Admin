@@ -70,7 +70,7 @@ public class DeliveryActivity extends Activity {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {          //리스트 뷰에서 리스트 중 하나를 클릭 했을 때발생
-                IconTextItem curItem = (IconTextItem) adapter.getItem(position);
+                final IconTextItem curItem = (IconTextItem) adapter.getItem(position);
                 String[] curData = curItem.getData();
 //                delete_position = position;
 //                Toast.makeText(getApplicationContext(), "Selected : " + curData[0], Toast.LENGTH_LONG).show();
@@ -83,10 +83,15 @@ public class DeliveryActivity extends Activity {
 //                                Cursor c = db.query("schedule", null, null, null, null, null, null);
 //
 //                                delete(delete_position + (c.moveToNext() ? c.getInt(c.getColumnIndex("_id")) : 0));
-                                Intent intent = new Intent(getApplicationContext(), SelectWorkActivity.class);
+
+                                String num = curItem.getData()[0];
+                                Intent intent = new Intent(getApplicationContext(),DeliveryDetailActivity.class);
                                 intent.putExtra("user", user);
+                                intent.putExtra("num",num);
                                 startActivity(intent);
                                 finish();
+
+
 
                                 onResume();
                             }
@@ -105,6 +110,10 @@ public class DeliveryActivity extends Activity {
             }
 
         });
+
+        adapter.addItem(new IconTextItem(res.getDrawable(R.drawable.book),
+                "1010 ", "C++ ", "20시13분  "
+        ));
 
         listView.setAdapter(adapter);
     }

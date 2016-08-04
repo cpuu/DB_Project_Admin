@@ -125,7 +125,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="주문번호"
+                    android:text="책이름"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#FFFF00"
                     android:background="#00ff00" android:layout_margin="2dip"/>
@@ -134,7 +134,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="고객명"
+                    android:text="저자"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#FFFF00"
                     android:background="#00ff00" android:layout_margin="2dip"/>
@@ -143,7 +143,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="구매시간"
+                    android:text="등급"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#FFFF00"
                     android:background="#00ff00" android:layout_margin="2dip"/>
@@ -156,7 +156,13 @@
 
                 ></ListView>
             
-            
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ettransportnumber"
+                android:hint="운송장번호 입력"
+                android:inputType="number"/>
 
 
 

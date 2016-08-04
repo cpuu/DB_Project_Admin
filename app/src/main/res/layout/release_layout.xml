@@ -137,7 +137,7 @@
                 <Button
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/btnjobstart"
+                    android:id="@+id/btnjobstart_release"
                     android:text="작업시작"
                     android:layout_weight="1"/>
             </TableRow>

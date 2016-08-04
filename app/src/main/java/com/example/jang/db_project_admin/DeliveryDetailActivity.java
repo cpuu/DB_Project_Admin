@@ -1,10 +1,13 @@
 package com.example.jang.db_project_admin;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -29,7 +32,7 @@ public class DeliveryDetailActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.deliverydetail_layout);
 
-
+        String result = getIntent().getStringExtra("num");
 
         user = getIntent().getParcelableExtra("user");
 
@@ -44,10 +47,46 @@ public class DeliveryDetailActivity extends Activity {
         SimpleDateFormat CurDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         etday.setText(CurDateFormat.format(date));
 
-        listView = (ListView) findViewById(R.id.listview_release);
+        listView = (ListView) findViewById(R.id.listview_deliverydetail);
         res = getResources();
         adapter = new IconTextListAdapter(this);
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {          //리스트 뷰에서 리스트 중 하나를 클릭 했을 때발생
+                final IconTextItem curItem = (IconTextItem) adapter.getItem(position);
+                String[] curData = curItem.getData();
+//                delete_position = position;
+//                Toast.makeText(getApplicationContext(), "Selected : " + curData[0], Toast.LENGTH_LONG).show();
+                AlertDialog.Builder alert_confirm = new AlertDialog.Builder(DeliveryDetailActivity.this);
+                alert_confirm.setMessage("배송하시겠습니까?").setCancelable(false).setPositiveButton("확인",     //팝업 작동
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // 'YES'
+//                                Cursor c = db.query("schedule", null, null, null, null, null, null);
+//
+//                                delete(delete_position + (c.moveToNext() ? c.getInt(c.getColumnIndex("_id")) : 0));
+
+                                onResume();
+                            }
+                        }).setNegativeButton("취소",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // 'No'
+                                return;
+                            }
+                        });
+                AlertDialog alert = alert_confirm.create();
+                alert.show();
+
+
+            }
+
+        });
 
         btnaccept.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {            //확인
@@ -70,7 +109,21 @@ public class DeliveryDetailActivity extends Activity {
             }
         });
 
+        adapter.addItem(new IconTextItem(res.getDrawable(R.drawable.book),
+                result, "C++ ", "20시13분  "
+        ));
 
+        listView.setAdapter(adapter);
 
     }
+
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(getApplicationContext(), SelectWorkActivity.class);
+        intent.putExtra("user", user);
+        startActivity(intent);
+        finish();
+
+    }
+
 }

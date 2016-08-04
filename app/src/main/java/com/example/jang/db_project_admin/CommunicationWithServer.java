@@ -496,6 +496,41 @@ public class CommunicationWithServer {
 
     }
 
+    public HashMap<String, String> get_outwaitbook(HashMap<String,String> input)
+    {
+        String result = "";
+        HashMap<String,String> temp = new HashMap<>();
+
+        try
+        {
+//            result = result.replace("}{","},{");            //JSON 형식 맞추기
+//            result = "{\"grade\":[" + result + "]}";        //JSON 형식 맞추기
+//            result = result.replace("},]}","}]}");
+
+
+            JSONObject json = new JSONObject(result);
+            //ksk_list의 값은 배열로 구성 되어있으므로 JSON 배열생성
+            JSONArray jArr = json.getJSONArray("rows");
+            String a = "";
+            for (int i=0; i<jArr.length(); i++){
+
+                //i번째 배열 할당
+                json = jArr.getJSONObject(i);
+                temp.put("title",json.getString("title"));
+                temp.put("barcode",json.getString("barcode"));
+                temp.put("shelf",json.getString("shelf"));
+
+            }
+
+        }catch (JSONException e)
+        {
+            String error = e.getMessage();
+        }
+
+        return temp;
+
+    }
+
     public HashMap<String,String> register_output(HashMap<String,String> map)
     {
 
@@ -691,6 +726,10 @@ public class CommunicationWithServer {
             {
                 serverUrl = "http://gyeongmo.synology.me/amazo/admin/add_employee.php";
             }
+            else if(communicationType.equals("get_outwaitbook"))
+            {
+                serverUrl = "http://gyeongmo.synology.me/amazo/admin/get_outwaitbook.php";
+            }
             try {
                 // 연결 url 설정
                 URL url = new URL(serverUrl);
@@ -805,6 +844,12 @@ public class CommunicationWithServer {
                     {
                         builder.appendQueryParameter("employee",params[1]);
                         builder.appendQueryParameter("datetime",params[2]);
+                    }
+                    else if(communicationType.equals("get_outwaitbook"))
+                    {
+                        builder.appendQueryParameter("title",params[1]);
+                        builder.appendQueryParameter("barcode",params[2]);
+                        builder.appendQueryParameter("shelf",params[2]);
                     }
 
 

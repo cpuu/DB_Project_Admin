@@ -746,6 +746,15 @@ public class CommunicationWithServer {
                         builder.appendQueryParameter("input",params[1]);
                         builder.appendQueryParameter("shelf",params[2]);
                         builder.appendQueryParameter("usedbook",params[3]);
+                    }else if(communicationType.equals("output"))
+                    {
+                        builder.appendQueryParameter("output",params[1]);
+                        builder.appendQueryParameter("usedbook",params[2]);
+                    }else if(communicationType.equals("packing"))
+                    {
+                        builder.appendQueryParameter("packing",params[1]);
+                        builder.appendQueryParameter("order",params[2]);
+                        builder.appendQueryParameter("delivery_number",params[3]);
                     }
                     else if(communicationType.equals("register_output"))
                     {
@@ -757,6 +766,7 @@ public class CommunicationWithServer {
                         builder.appendQueryParameter("employee",params[1]);
                         builder.appendQueryParameter("datetime",params[2]);
                     }
+
 
                     String query = builder.build().getEncodedQuery();
 

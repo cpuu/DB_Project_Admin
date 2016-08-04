@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TabHost
+        android:id="@+id/tabhost"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+            </TabWidget>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+                <ScrollView
+                    android:id="@+id/tab1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    >
+
+                    <TableLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:stretchColumns="*"
+                        android:gravity="center">
+
+                        <TableRow
+                            android:id="@+id/tableRow1"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="이름"
+                                android:gravity="center"
+
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textColor="#FFFF00"
+                                android:background="#0000FF"/>
+
+                            <EditText
+                                android:id="@+id/etname_purchase"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:text=""
+                                android:inputType="text"
+                                android:padding="10dp"
+                                android:singleLine="true" />
+
+                        </TableRow>
+                        <TableRow
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="날짜"
+                                android:gravity="center"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:layout_weight="1"
+                                android:textColor="#FFFF00"
+                                android:background="#0000FF"/>
+
+                            <EditText
+                                android:id="@+id/etday_purchase"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:text="2016년 7월 28일"
+                                android:inputType="text"
+                                android:padding="10dp"
+                                android:singleLine="true"
+                                android:layout_weight="4"/>
+
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="사번"
+                                android:gravity="center"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textColor="#FFFF00"
+                                android:background="#0000FF"
+                               />
+
+                            <EditText
+                                android:id="@+id/etnum_purchase"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:text=""
+                                android:inputType="text"
+                                android:padding="10dp"
+                                android:singleLine="true"
+                               />
+                            </TableRow>
+                        <TableRow
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="구매번호"
+                                android:gravity="center"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textColor="#FFFF00"
+                                android:background="#0000FF"
+                                android:layout_weight="1"/>
+
+
+                            <EditText
+                                android:id="@+id/etpurnum_purchase"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:hint="구매번호입력"
+                                android:inputType="number"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:padding="10dp"
+                                android:singleLine="true"
+                                android:layout_weight="4"/>
+
+
+                        </TableRow>
+                        <TableRow
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="구매금액"
+                                android:gravity="center"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:layout_weight="1"
+                                android:textColor="#FFFF00"
+                                android:background="#0000FF"/>
+
+                            <EditText
+                                android:id="@+id/etprice_purchase"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:hint="금액 입력"
+                                android:inputType="number"
+                                android:padding="10dp"
+                                android:singleLine="true"
+                                android:layout_weight="4"/>
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="은행명"
+                                android:gravity="center"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:layout_weight="1"
+                                android:textColor="#FFFF00"
+                                android:background="#0000FF"/>
+
+                            <EditText
+                                android:id="@+id/etbank_purchase"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:hint="은행명 입력"
+                                android:inputType="text"
+                                android:padding="10dp"
+                                android:singleLine="true"
+                                android:layout_weight="4"/>
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="판매인"
+                                android:gravity="center"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:layout_weight="1"
+                                android:textColor="#FFFF00"
+                                android:background="#0000FF"/>
+
+                            <EditText
+                                android:id="@+id/etseller_purchase"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:hint="서점주"
+                                android:inputType="text"
+                                android:padding="10dp"
+                                android:singleLine="true"
+                                android:layout_weight="4"/>
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:text="계좌번호"
+                                android:gravity="center"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:layout_weight="1"
+                                android:textColor="#FFFF00"
+                                android:background="#0000FF"/>
+
+                            <EditText
+                                android:id="@+id/etaccount_purchase"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:hint="계좌번호 입력"
+                                android:inputType="number"
+                                android:padding="10dp"
+                                android:singleLine="true"
+                                android:layout_weight="4"/>
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:text="전화번호"
+                                android:gravity="center"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:layout_weight="1"
+                                android:textColor="#FFFF00"
+                                android:background="#0000FF"/>
+
+                            <EditText
+                                android:id="@+id/etphone_purchase"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:hint="전화번호 입력"
+                                android:inputType="number"
+                                android:padding="10dp"
+                                android:singleLine="true"
+                                android:layout_weight="4"/>
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:text="예금주"
+                                android:gravity="center"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:layout_weight="1"
+                                android:textColor="#FFFF00"
+                                android:background="#0000FF"/>
+
+                            <EditText
+                                android:id="@+id/etdepositor_purchase"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:hint="예금주 입력"
+                                android:inputType="text"
+                                android:padding="10dp"
+                                android:singleLine="true"
+                                android:layout_weight="4"/>
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                            <Button
+                                android:id="@+id/btnaccept_purchase"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:text="확인"
+                                android:gravity="center"
+                                android:background="@null"
+                                android:layout_weight="1"/>
+
+                            <Button
+                                android:id="@+id/btncancel_purchase"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:text="취소"
+                                android:gravity="center"
+                                android:background="@null"
+                                android:layout_weight="1"/>
+
+                        </TableRow>
+
+                    </TableLayout>
+
+
+                </ScrollView>
+
+
+                <!--tab 2 영역!-->
+                <ScrollView
+                    android:id="@+id/tab2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TableLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:stretchColumns="*"
+
+
+                        >
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:text="책종류"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:text="등급"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:text="수량"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:text="표준구매가"/>
+
+                        </TableRow>
+
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <Spinner
+                                android:id="@+id/spincategory0_purchase"
+                                android:layout_width="fill_parent"
+
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center">
+
+                            </Spinner>
+                            <Spinner
+                                android:id="@+id/spingrade0_purchase"
+                                android:layout_width="fill_parent"
+
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center">
+
+                            </Spinner>
+
+                            <EditText
+                                android:id="@+id/editcnt0_purchase"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:inputType="number"
+                                android:hint="수량"/>
+
+                            <TextView
+                                android:id="@+id/subsum0_purchase"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:text=""/>
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <Spinner
+                                android:id="@+id/spincategory1_purchase"
+                                android:layout_width="fill_parent"
+
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center">
+
+                            </Spinner>
+                            <Spinner
+                                android:id="@+id/spingrade1_purchase"
+                                android:layout_width="fill_parent"
+
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center">
+
+                            </Spinner>
+
+                            <EditText
+                                android:id="@+id/editcnt1_purchase"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:inputType="number"
+                                android:hint="수량"/>
+
+                            <TextView
+                                android:id="@+id/subsum1_purchase"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:text=""/>
+
+                        </TableRow>
+
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <Spinner
+                                android:id="@+id/spincategory2_purchase"
+                                android:layout_width="fill_parent"
+
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center">
+
+                            </Spinner>
+                            <Spinner
+                                android:id="@+id/spingrade2_purchase"
+                                android:layout_width="fill_parent"
+
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center">
+
+                            </Spinner>
+
+                            <EditText
+                                android:id="@+id/editcnt2_purchase"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:inputType="number"
+                                android:hint="수량"/>
+
+                            <TextView
+                                android:id="@+id/subsum2_purchase"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:text=""/>
+
+                        </TableRow>
+
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <Spinner
+                                android:id="@+id/spincategory3_purchase"
+                                android:layout_width="fill_parent"
+
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center">
+
+                            </Spinner>
+                            <Spinner
+                                android:id="@+id/spingrade3_purchase"
+                                android:layout_width="fill_parent"
+
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center">
+
+                            </Spinner>
+
+                            <EditText
+                                android:id="@+id/editcnt3_purchase"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:inputType="number"
+                                android:hint="수량"/>
+
+                            <TextView
+                                android:id="@+id/subsum3_purchase"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:text=""/>
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <Spinner
+                                android:id="@+id/spincategory4_purchase"
+                                android:layout_width="fill_parent"
+
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center">
+
+                            </Spinner>
+                            <Spinner
+                                android:id="@+id/spingrade4_purchase"
+                                android:layout_width="fill_parent"
+
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center">
+
+                            </Spinner>
+
+                            <EditText
+                                android:id="@+id/editcnt4_purchase"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:inputType="number"
+                                android:hint="수량"/>
+
+                            <TextView
+                                android:id="@+id/subsum4_purchase"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:text=""/>
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <Spinner
+                                android:id="@+id/spincategory5_purchase"
+                                android:layout_width="fill_parent"
+
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center">
+
+                            </Spinner>
+                            <Spinner
+                                android:id="@+id/spingrade5_purchase"
+                                android:layout_width="fill_parent"
+
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center">
+
+                            </Spinner>
+
+                            <EditText
+                                android:id="@+id/editcnt5_purchase"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:inputType="number"
+                                android:hint="수량"/>
+
+                            <TextView
+                                android:id="@+id/subsum5_purchase"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:text=""/>
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <Spinner
+                                android:id="@+id/spincategory6_purchase"
+                                android:layout_width="fill_parent"
+
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center">
+
+                            </Spinner>
+                            <Spinner
+                                android:id="@+id/spingrade6_purchase"
+                                android:layout_width="fill_parent"
+
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center">
+
+                            </Spinner>
+
+                            <EditText
+                                android:id="@+id/editcnt6_purchase"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:inputType="number"
+                                android:hint="수량"/>
+
+                            <TextView
+                                android:id="@+id/subsum6_purchase"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:text=""/>
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <Spinner
+                                android:id="@+id/spincategory7_purchase"
+                                android:layout_width="fill_parent"
+
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center">
+
+                            </Spinner>
+                            <Spinner
+                                android:id="@+id/spingrade7_purchase"
+                                android:layout_width="fill_parent"
+
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center">
+
+                            </Spinner>
+
+                            <EditText
+                                android:id="@+id/editcnt7_purchase"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:inputType="number"
+                                android:hint="수량"/>
+
+                            <TextView
+                                android:id="@+id/subsum7_purchase"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:text=""/>
+
+                        </TableRow>
+
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <Spinner
+                                android:id="@+id/spincategory8_purchase"
+                                android:layout_width="fill_parent"
+
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center">
+
+                            </Spinner>
+                            <Spinner
+                                android:id="@+id/spingrade8_purchase"
+                                android:layout_width="fill_parent"
+
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center">
+
+                            </Spinner>
+
+                            <EditText
+                                android:id="@+id/editcnt8_purchase"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:inputType="number"
+                                android:hint="수량"/>
+
+                            <TextView
+                                android:id="@+id/subsum8_purchase"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:text=""/>
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <Spinner
+                                android:id="@+id/spincategory9_purchase"
+                                android:layout_width="fill_parent"
+
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center">
+
+                            </Spinner>
+                            <Spinner
+                                android:id="@+id/spingrade9_purchase"
+                                android:layout_width="fill_parent"
+
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center">
+
+                            </Spinner>
+
+                            <EditText
+                                android:id="@+id/editcnt9_purchase"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:inputType="number"
+                                android:hint="수량"/>
+
+                            <TextView
+                                android:id="@+id/subsum9_purchase"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:layout_marginLeft="1dp"
+                                android:gravity="center"
+                                android:padding="3dp"
+                                android:text=""/>
+
+                        </TableRow>
+
+                        <Button
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/btncal_purchase"
+                            android:text="계산"
+                            android:gravity="center"/>
+                    </TableLayout>
+
+
+                </ScrollView>
+
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+</LinearLayout>

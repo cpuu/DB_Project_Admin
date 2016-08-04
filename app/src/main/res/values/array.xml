@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="grade">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+    </string-array>
+
+    <string-array name="category">
+        <item>코믹스</item>
+        <item>소설</item>
+        <item>참고서</item>
+    </string-array>
+
+    <string-array name="month">
+        <item>1월</item>
+        <item>2월</item>
+        <item>3월</item>
+        <item>4월</item>
+        <item>5월</item>
+        <item>6월</item>
+        <item>7월</item>
+        <item>8월</item>
+        <item>9월</item>
+        <item>10월</item>
+        <item>11월</item>
+        <item>12월</item>
+    </string-array>
+<!--사원
+대리
+과장
+차장
+부장
+상무
+전무
+부사장
+사장
+-->
+
+    <string-array name="position">
+        <item>사원</item>
+        <item>대리</item>
+        <item>과장</item>
+        <item>차장</item>
+        <item>부장</item>
+        <item>상무</item>
+        <item>전무</item>
+        <item>부사장</item>
+        <item>사장</item>
+    </string-array>
+
+    <!--구매팀
+입고팀
+출고팀
+관리팀
+무소속
+-->
+
+    <string-array name="division">
+        <item>구매팀</item>
+        <item>출고팀</item>
+        <item>관리팀</item>
+        <item>무소속</item>
+    </string-array>
+
+
+    <string-array name="day">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+
+
+    </string-array>
+
+</resources>

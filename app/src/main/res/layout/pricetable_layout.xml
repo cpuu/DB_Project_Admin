@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/tab1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:stretchColumns="*">
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#0000FF"
+
+                    android:gravity="center"
+                    android:text="이름"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#FFFF00" />
+
+                <EditText
+                    android:id="@+id/etname_pricetable"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="4"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:inputType="text"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:text="김개똥" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#0000FF"
+                    android:gravity="center"
+                    android:text="날짜"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#FFFF00" />
+
+                <EditText
+                    android:id="@+id/etday_pricetable"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="4"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:inputType="text"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:text="2016년 7월 28일" />
+
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#0000FF"
+                    android:gravity="center"
+                    android:text="사번"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#FFFF00" />
+
+                <EditText
+                    android:id="@+id/etnum_pricetable"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="4"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:inputType="text"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:text="392849" />
+            </TableRow>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="_________________________________________________________"
+                android:textStyle="bold" />
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dip"
+                android:background="#00ff00">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dip"
+                    android:layout_weight="1"
+                    android:background="#00ff00"
+                    android:gravity="center"
+                    android:text="책종류"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#FFFF00" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dip"
+                    android:layout_weight="1"
+                    android:background="#00ff00"
+                    android:gravity="center"
+                    android:text="등급"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#FFFF00" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dip"
+                    android:layout_weight="1"
+                    android:background="#00ff00"
+                    android:gravity="center"
+                    android:text="가격"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#FFFF00" />
+            </TableRow>
+
+            <ListView
+                android:id="@+id/listview_pricetable"
+                android:layout_width="fill_parent"
+                android:layout_height="271dp"
+
+                ></ListView>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#0000FF"
+                    android:text="직급"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#FFFF00" />
+
+                <Spinner
+                    android:id="@+id/spincategory_pricetable"
+                    android:layout_width="fill_parent"
+
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+                </Spinner>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#0000FF"
+                    android:text="등급"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#FFFF00" />
+
+                <Spinner
+                    android:id="@+id/spingrade_pricetable"
+                    android:layout_width="fill_parent"
+
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+                </Spinner>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#0000FF"
+                    android:text="가격"
+                    android:gravity="center"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#FFFF00" />
+
+                <EditText
+                    android:id="@+id/etprice_pricetable"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="4"
+                    android:inputType="text"
+                    android:padding="10dp"
+                    android:singleLine="true" />
+
+            </TableRow>
+
+
+            <Button
+                android:id="@+id/btnsave_pricetable"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="저장" />
+
+            <Button
+                android:id="@+id/btncancel_pricetable"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="취소" />
+        </TableLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,63 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:adnroid="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/iconItem"
+        android:layout_width="16pt"
+        android:layout_height="16pt"
+        android:padding="4dp"
+        android:layout_gravity="center_vertical"
+        />
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*"
+        >
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/dataItem01"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:paddingRight="20dp"
+                android:padding="4dp"
+                android:layout_weight="1"
+                />
+            <!--<RelativeLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="4dp"-->
+            <!-->-->
+            <TextView
+                android:id="@+id/dataItem02"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingRight="20dp"
+                android:layout_weight="1"
+                />
+            <TextView
+                android:id="@+id/dataItem03"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textColor="#ccf88107"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:paddingRight="4dp"
+                android:layout_weight="1"/>
+        </TableRow>
+
+
+        <!--</RelativeLayout>-->
+    </TableLayout>
+
+</LinearLayout>  

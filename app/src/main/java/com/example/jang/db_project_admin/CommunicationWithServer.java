@@ -849,7 +849,7 @@ public class CommunicationWithServer {
                     {
                         builder.appendQueryParameter("title",params[1]);
                         builder.appendQueryParameter("barcode",params[2]);
-                        builder.appendQueryParameter("shelf",params[2]);
+                        builder.appendQueryParameter("shelf",params[3]);
                     }
 
 

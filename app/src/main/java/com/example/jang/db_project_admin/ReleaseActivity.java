@@ -11,17 +11,20 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 
 /**
  * Created by Jang on 2016-07-31.
  */
 public class ReleaseActivity extends Activity {
+    CommunicationWithServer cws;
     User user;
-    EditText etname, etnum, etday;
-    Button btnaccept, btncancel,btnjobstart;
+    EditText etname, etnum, etday, etworknum;
+    Button btnaccept, btncancel, btnjobstart;
 
     Resources res;
     IconTextListAdapter adapter;
@@ -33,20 +36,20 @@ public class ReleaseActivity extends Activity {
     }
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.release_layout);
 
 
-        btnjobstart = (Button)findViewById(R.id.btnjobstart_release);
-        btnaccept = (Button)findViewById(R.id.bntaccept_release);
-        btncancel = (Button)findViewById(R.id.bntcancel_release);
+        btnjobstart = (Button) findViewById(R.id.btnjobstart_release);
+        btnaccept = (Button) findViewById(R.id.bntaccept_release);
+        btncancel = (Button) findViewById(R.id.bntcancel_release);
 
-        etname = (EditText)findViewById(R.id.etname_release);
-        etnum = (EditText)findViewById(R.id.etnum_release);
-        etday = (EditText)findViewById(R.id.etday_release);
+        etname = (EditText) findViewById(R.id.etname_release);
+        etnum = (EditText) findViewById(R.id.etnum_release);
+        etday = (EditText) findViewById(R.id.etday_release);
+        etworknum = (EditText)findViewById(R.id.etworknum_release);
 
         user = getIntent().getParcelableExtra("user");
         etname.setText(user.getName());
@@ -61,6 +64,31 @@ public class ReleaseActivity extends Activity {
         adapter = new IconTextListAdapter(this);
         listView.setAdapter(adapter);
 
+        btnjobstart.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                HashMap<String, String> input = new HashMap<String, String>();
+
+                Date date = new Date(System.currentTimeMillis());
+                SimpleDateFormat CurDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+
+                input.put("employee", etnum.getText().toString());
+                input.put("datetime", CurDateFormat.format(date));
+
+
+                cws = new CommunicationWithServer(getApplicationContext());
+                HashMap<String,String> result = cws.register_output(input);
+                String test = result.get("id_auto");
+                if (result != null) {
+                    etworknum.setText(result.get("id_auto"));
+                    Toast.makeText(getApplicationContext(), "작업을 시작하십시오", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "에러", Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+        });
 
         btnaccept.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -73,16 +101,6 @@ public class ReleaseActivity extends Activity {
             }
         });
 
-        btnjobstart.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), SelectWorkActivity.class);
-                intent.putExtra("user", user);
-                startActivity(intent);
-                finish();
-
-
-            }
-        });
 
         btncancel.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -130,7 +148,6 @@ public class ReleaseActivity extends Activity {
             }
 
         });
-
 
 
     }

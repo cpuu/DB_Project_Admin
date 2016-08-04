@@ -300,6 +300,36 @@ public class CommunicationWithServer {
 
     }
 
+    public String packing(HashMap<String,String> map)
+    {
+        String result="";
+
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("packing");
+        arrayList.add(map.get("packing"));
+        arrayList.add(map.get("order"));
+        arrayList.add(map.get("delivery_number"));
+
+        HashMap<String,String> temp = new HashMap<>();
+
+
+
+        String[] list = arrayList.toArray(new String[arrayList.size()]);
+
+        CommunicationAsyncTask communicationAsyncTask = new CommunicationAsyncTask();
+        try {
+            result = communicationAsyncTask.execute(list).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+
+        return result;
+
+    }
+
     public String check_shelf_id(String shelfnumber)
     {
         String result="";
@@ -322,6 +352,8 @@ public class CommunicationWithServer {
 
         return result;
     }
+
+
 
     public String register_input(HashMap<String,String > input)
     {
@@ -603,6 +635,10 @@ public class CommunicationWithServer {
             {
                 serverUrl = "http://gyeongmo.synology.me/amazo/admin/register_input.php";
             }
+            else if(communicationType.equals("register_output"))
+            {
+                serverUrl = "http://gyeongmo.synology.me/amazo/admin/register_output.php";
+            }
             else if(communicationType.equals("register_packing"))
             {
                 serverUrl = "http://gyeongmo.synology.me/amazo/admin/register_packing.php";
@@ -610,6 +646,10 @@ public class CommunicationWithServer {
             else if(communicationType.equals("input"))
             {
                 serverUrl = "http://gyeongmo.synology.me/amazo/admin/input.php";
+            }
+            else if(communicationType.equals("packing"))
+            {
+                serverUrl = "http://gyeongmo.synology.me/amazo/admin/packing.php";
             }
             try {
                 // 연결 url 설정

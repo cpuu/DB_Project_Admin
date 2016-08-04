@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <items version="2" >
 
     <item
@@ -80,3 +81,86 @@
     </item>
 
 </items>
+=======
+<items version="2" >
+
+    <item
+        jar="/Users/CPUU/Desktop/DB_Project_Admin/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="/Users/CPUU/Desktop/DB_Project_Admin/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.4.0_7aae23df3dfd7dd717f25a7d8658d0d84d52c3b4/classes.dex" />
+    </item>
+    <item
+        jar="/Users/CPUU/Desktop/DB_Project_Admin/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="/Users/CPUU/Desktop/DB_Project_Admin/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.4.0_f4389a9b7806e144b4c767095cb69736e0d409a9/classes.dex" />
+    </item>
+    <item
+        jar="/Users/CPUU/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="/Users/CPUU/Desktop/DB_Project_Admin/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.4.0_4bb9d24554bbaae27b5b52a7f338c7fea4281aaf/classes.dex" />
+    </item>
+    <item
+        jar="/Users/CPUU/Desktop/DB_Project_Admin/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="6bc2254545ac11bb094a358a644d5e67ae613a34">
+        <dex dex="/Users/CPUU/Desktop/DB_Project_Admin/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_4e3772a567630c82b42d5547a1b23589450d1e16/classes.dex" />
+    </item>
+    <item
+        jar="/Users/CPUU/Desktop/DB_Project_Admin/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="/Users/CPUU/Desktop/DB_Project_Admin/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.4.0_1ecf0870cd2c514c0f2ccb696351999c32cdc904/classes.dex" />
+    </item>
+    <item
+        jar="/Users/CPUU/Desktop/DB_Project_Admin/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="9e804ec5413f11a35d1112159e118c62585d13bf">
+        <dex dex="/Users/CPUU/Desktop/DB_Project_Admin/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_65aac0f5c68871ba16b8f3e8cc23797677f0c7d3/classes.dex" />
+    </item>
+    <item
+        jar="/Users/CPUU/Desktop/DB_Project_Admin/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
+        <dex dex="/Users/CPUU/Desktop/DB_Project_Admin/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-23.4.0_8236b80c058ed69652a223f62af08f40c0adeabe/classes.dex" />
+    </item>
+    <item
+        jar="/Users/CPUU/Desktop/DB_Project_Admin/app/libs/json_simple-1.1.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="5e303a03d04e6788dddfa3655272580ae0fc13bb">
+        <dex dex="/Users/CPUU/Desktop/DB_Project_Admin/app/build/intermediates/transforms/dex/debug/folders/1000/2/json_simple-1.1_ecc31f7f50a61184cd0b70f70cc9294648e0a211/classes.dex" />
+    </item>
+    <item
+        jar="/Users/CPUU/Desktop/DB_Project_Admin/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="/Users/CPUU/Desktop/DB_Project_Admin/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.4.0_aaa8b44d699e66d00f742a829636104cd7e8c684/classes.dex" />
+    </item>
+    <item
+        jar="/Users/CPUU/Desktop/DB_Project_Admin/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="/Users/CPUU/Desktop/DB_Project_Admin/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.4.0_51a37b542bd0eec8a8cec63f3debf1d4b8666785/classes.dex" />
+    </item>
+    <item
+        jar="/Users/CPUU/Desktop/DB_Project_Admin/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="/Users/CPUU/Desktop/DB_Project_Admin/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.4.0_366ed751e9adc1d93507f4d5ec8362524095edcf/classes.dex" />
+    </item>
+
+</items>
+>>>>>>> origin/master

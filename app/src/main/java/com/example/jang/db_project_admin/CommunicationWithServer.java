@@ -498,6 +498,8 @@ public class CommunicationWithServer {
 
     public HashMap<String, String> get_outwaitbook(HashMap<String,String> input)
     {
+        // 고객이 주문했으나 아직 출고되지 않은 모든 책의 List를 가져올 때 사용
+        // 책제목, 책바코드, 책꽂이바코드를 리턴
         String result = "";
         HashMap<String,String> temp = new HashMap<>();
 

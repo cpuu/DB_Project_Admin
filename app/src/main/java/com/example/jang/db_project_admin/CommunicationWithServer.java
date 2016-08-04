@@ -443,6 +443,63 @@ public class CommunicationWithServer {
         return result;
     }
 
+    public HashMap<String, String> get_usedbooklist(HashMap<String,String> input)
+    {
+        // 고객이 책을 주문하기 전, 검색한 책의 List를 보여줄 때 사용
+        // 책제목, 저자, 출판사, 등급, 가격을 리턴
+
+        String result = "";
+
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("get_usedbooklist");
+
+        arrayList.add(input.get("search_data"));
+
+
+        String[] list = arrayList.toArray(new String[arrayList.size()]);
+
+        CommunicationAsyncTask communicationAsyncTask = new CommunicationAsyncTask();
+        try {
+            result = communicationAsyncTask.execute(list).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        HashMap<String,String> temp = new HashMap<>();
+
+        try
+        {
+//            result = result.replace("}{","},{");            //JSON 형식 맞추기
+//            result = "{\"grade\":[" + result + "]}";        //JSON 형식 맞추기
+//            result = result.replace("},]}","}]}");
+
+
+            JSONObject json = new JSONObject(result);
+            //ksk_list의 값은 배열로 구성 되어있으므로 JSON 배열생성
+            JSONArray jArr = json.getJSONArray("rows");
+            String a = "";
+            for (int i=0; i<jArr.length(); i++){
+
+                //i번째 배열 할당
+                json = jArr.getJSONObject(i);
+                temp.put("title",json.getString("title"));
+                temp.put("publisher",json.getString("publisher"));
+                temp.put("grade",json.getString("grade"));
+                temp.put("price",json.getString("price"));
+                temp.put("barcode",json.getString("barcode"));
+
+            }
+
+        }catch (JSONException e)
+        {
+            String error = e.getMessage();
+        }
+
+        return temp;
+
+    }
 
     public HashMap<String, String> input(HashMap<String,String> input)
     {
@@ -734,6 +791,10 @@ public class CommunicationWithServer {
             {
                 serverUrl = "http://gyeongmo.synology.me/amazo/admin/get_outwaitbook.php";
             }
+            else if(communicationType.equals("get_usedbooklist"))
+            {
+                serverUrl = "http://gyeongmo.synology.me/amazo/admin/get_usedbooklist.php";
+            }
             try {
                 // 연결 url 설정
                 URL url = new URL(serverUrl);
@@ -854,6 +915,15 @@ public class CommunicationWithServer {
                         builder.appendQueryParameter("title",params[1]);
                         builder.appendQueryParameter("barcode",params[2]);
                         builder.appendQueryParameter("shelf",params[3]);
+                    }
+                    else if(communicationType.equals("get_usedbooklist"))
+                    {
+                        builder.appendQueryParameter("title",params[1]);
+                        builder.appendQueryParameter("author",params[2]);
+                        builder.appendQueryParameter("publisher",params[3]);
+                        builder.appendQueryParameter("grade",params[4]);
+                        builder.appendQueryParameter("price",params[5]);
+                        builder.appendQueryParameter("barcode",params[6]);
                     }
 
 

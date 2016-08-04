@@ -336,6 +336,36 @@ public class CommunicationWithServer {
 
     }
 
+    public String output(HashMap<String,String> map)
+    {
+        // 포장에서 각 주문에 대해서 책을 확인하고 택배번호를 입력한 뒤 완료를 누를 때 사용
+        // ok 또는 fail을 리턴
+        String result="";
+
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("output");
+        arrayList.add(map.get("output"));
+        arrayList.add(map.get("usedbook"));
+
+        HashMap<String,String> temp = new HashMap<>();
+
+
+
+        String[] list = arrayList.toArray(new String[arrayList.size()]);
+
+        CommunicationAsyncTask communicationAsyncTask = new CommunicationAsyncTask();
+        try {
+            result = communicationAsyncTask.execute(list).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+
+        return result;
+
+    }
     public String packing(HashMap<String,String> map)
     {
         // 포장에서 각 주문에 대해서 책을 확인하고 택배번호를 입력한 뒤 완료를 누를 때 사용

@@ -56,7 +56,7 @@ public class CommunicationWithServer {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-
+//aa
         return result;
     }
 

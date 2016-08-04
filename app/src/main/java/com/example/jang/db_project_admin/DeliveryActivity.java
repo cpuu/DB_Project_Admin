@@ -49,6 +49,10 @@ public class DeliveryActivity extends Activity {
         listView = (ListView) findViewById(R.id.listview_delivery);
         res = getResources();
 
+        user = getIntent().getParcelableExtra("user");
+        etname.setText(user.getName());
+        etnum.setText(user.getEmployee_number());
+
         Date date = new Date(System.currentTimeMillis());
         SimpleDateFormat CurDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         etday.setText(CurDateFormat.format(date));
@@ -66,7 +70,8 @@ public class DeliveryActivity extends Activity {
 
 
                 cws = new CommunicationWithServer(getApplicationContext());
-                HashMap<String,String> result = cws.register_output(input);
+                HashMap<String,String> result = cws.register_packing(input);
+
                 String test = result.get("id_auto");
                 if (result != null) {
                     etworknum.setText(result.get("id_auto"));

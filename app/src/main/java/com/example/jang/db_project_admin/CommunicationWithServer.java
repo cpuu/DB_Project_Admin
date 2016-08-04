@@ -302,6 +302,8 @@ public class CommunicationWithServer {
 
     public String packing(HashMap<String,String> map)
     {
+        // 포장에서 각 주문에 대해서 책을 확인하고 택배번호를 입력한 뒤 완료를 누를 때 사용
+        // ok 또는 fail을 리턴
         String result="";
 
         ArrayList<String> arrayList = new ArrayList<>();
@@ -542,7 +544,7 @@ public class CommunicationWithServer {
         {
 //            result = result.replace("}{","},{");            //JSON 형식 맞추기
 //            result = "{\"grade\":[" + result + "]}";        //JSON 형식 맞추기
-//            result = result.replace("},]}","}]}");
+//            result = result.replace("},]}","}]}");builder.appendQueryParameter("employee",params[1]);
 
 
             JSONObject json = new JSONObject(result);

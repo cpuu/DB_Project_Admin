@@ -92,6 +92,42 @@ public class CommunicationWithServer {
 
     }
 
+    public String add_employee(HashMap<String,String> map)
+    {
+        // 직원정보관리에서 등록을 누를 때 사용( 새로운 직원의 직원정보를 추가할 때 사용 )
+        // 추가된 직원의 정보를 employee 테이블에 insert함
+        // ok 또는 fail을 리턴
+
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("add_employee");
+        arrayList.add(map.get("name"));
+        arrayList.add(map.get("phone"));
+        arrayList.add(map.get("employee_number"));
+        arrayList.add(map.get("department"));
+        arrayList.add(map.get("position"));
+        arrayList.add(map.get("salary"));
+        arrayList.add(map.get("entry_date"));
+        arrayList.add(map.get("retire_date"));
+        arrayList.add(map.get("id"));
+        arrayList.add(map.get("password"));
+        arrayList.add(map.get("retire_date"));
+
+        String[] list = arrayList.toArray(new String[arrayList.size()]); // 아이디 비밀번호 받아옴
+        String result = null;
+
+        CommunicationAsyncTask communicationAsyncTask = new CommunicationAsyncTask();
+        try {
+            result = communicationAsyncTask.execute(list).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+
+    }
+
     public HashMap<String,String>  ISBNSearchTask(String ISBN)
     {
         HashMap<String,String> map  = new HashMap<String, String>();
@@ -650,6 +686,10 @@ public class CommunicationWithServer {
             else if(communicationType.equals("packing"))
             {
                 serverUrl = "http://gyeongmo.synology.me/amazo/admin/packing.php";
+            }
+            else if(communicationType.equals("add_employee"))
+            {
+                serverUrl = "http://gyeongmo.synology.me/amazo/admin/add_employee.php";
             }
             try {
                 // 연결 url 설정

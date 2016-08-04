@@ -56,8 +56,8 @@ public class CommunicationWithServer {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-//aa
-        return result;
+//aa/d
+ return result;
     }
 
     public String purchaseTask(HashMap<String,String> map)

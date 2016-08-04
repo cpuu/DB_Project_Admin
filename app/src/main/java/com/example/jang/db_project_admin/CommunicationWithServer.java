@@ -92,6 +92,42 @@ public class CommunicationWithServer {
 
     }
 
+    public String add_employee(HashMap<String,String> map)
+    {
+        // 직원정보관리에서 등록을 누를 때 사용( 새로운 직원의 직원정보를 추가할 때 사용 )
+        // 추가된 직원의 정보를 employee 테이블에 insert함
+        // ok 또는 fail을 리턴
+
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("add_employee");
+        arrayList.add(map.get("name"));
+        arrayList.add(map.get("phone"));
+        arrayList.add(map.get("employee_number"));
+        arrayList.add(map.get("department"));
+        arrayList.add(map.get("position"));
+        arrayList.add(map.get("salary"));
+        arrayList.add(map.get("entry_date"));
+        arrayList.add(map.get("retire_date"));
+        arrayList.add(map.get("id"));
+        arrayList.add(map.get("password"));
+        arrayList.add(map.get("retire_date"));
+
+        String[] list = arrayList.toArray(new String[arrayList.size()]); // 아이디 비밀번호 받아옴
+        String result = null;
+
+        CommunicationAsyncTask communicationAsyncTask = new CommunicationAsyncTask();
+        try {
+            result = communicationAsyncTask.execute(list).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+
+    }
+
     public HashMap<String,String>  ISBNSearchTask(String ISBN)
     {
         HashMap<String,String> map  = new HashMap<String, String>();
@@ -462,6 +498,43 @@ public class CommunicationWithServer {
 
     }
 
+    public HashMap<String, String> get_outwaitbook(HashMap<String,String> input)
+    {
+        // 고객이 주문했으나 아직 출고되지 않은 모든 책의 List를 가져올 때 사용
+        // 책제목, 책바코드, 책꽂이바코드를 리턴
+        String result = "";
+        HashMap<String,String> temp = new HashMap<>();
+
+        try
+        {
+//            result = result.replace("}{","},{");            //JSON 형식 맞추기
+//            result = "{\"grade\":[" + result + "]}";        //JSON 형식 맞추기
+//            result = result.replace("},]}","}]}");
+
+
+            JSONObject json = new JSONObject(result);
+            //ksk_list의 값은 배열로 구성 되어있으므로 JSON 배열생성
+            JSONArray jArr = json.getJSONArray("rows");
+            String a = "";
+            for (int i=0; i<jArr.length(); i++){
+
+                //i번째 배열 할당
+                json = jArr.getJSONObject(i);
+                temp.put("title",json.getString("title"));
+                temp.put("barcode",json.getString("barcode"));
+                temp.put("shelf",json.getString("shelf"));
+
+            }
+
+        }catch (JSONException e)
+        {
+            String error = e.getMessage();
+        }
+
+        return temp;
+
+    }
+
     public HashMap<String,String> register_output(HashMap<String,String> map)
     {
 
@@ -653,6 +726,14 @@ public class CommunicationWithServer {
             {
                 serverUrl = "http://gyeongmo.synology.me/amazo/admin/packing.php";
             }
+            else if(communicationType.equals("add_employee"))
+            {
+                serverUrl = "http://gyeongmo.synology.me/amazo/admin/add_employee.php";
+            }
+            else if(communicationType.equals("get_outwaitbook"))
+            {
+                serverUrl = "http://gyeongmo.synology.me/amazo/admin/get_outwaitbook.php";
+            }
             try {
                 // 연결 url 설정
                 URL url = new URL(serverUrl);
@@ -767,6 +848,12 @@ public class CommunicationWithServer {
                     {
                         builder.appendQueryParameter("employee",params[1]);
                         builder.appendQueryParameter("datetime",params[2]);
+                    }
+                    else if(communicationType.equals("get_outwaitbook"))
+                    {
+                        builder.appendQueryParameter("title",params[1]);
+                        builder.appendQueryParameter("barcode",params[2]);
+                        builder.appendQueryParameter("shelf",params[3]);
                     }
 
 

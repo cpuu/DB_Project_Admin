@@ -481,6 +481,59 @@ public class CommunicationWithServer {
 
     }
 
+    public HashMap<String,String> register_packing(HashMap<String,String> map)
+    {
+
+        String result="";
+
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("register_packing");
+        arrayList.add(map.get("employee"));
+        arrayList.add(map.get("datetime"));
+
+        HashMap<String,String> temp = new HashMap<>();
+
+
+
+        String[] list = arrayList.toArray(new String[arrayList.size()]);
+
+        CommunicationAsyncTask communicationAsyncTask = new CommunicationAsyncTask();
+        try {
+            result = communicationAsyncTask.execute(list).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        try
+        {
+//            result = result.replace("}{","},{");            //JSON 형식 맞추기
+//            result = "{\"grade\":[" + result + "]}";        //JSON 형식 맞추기
+//            result = result.replace("},]}","}]}");
+
+
+            JSONObject json = new JSONObject(result);
+            //ksk_list의 값은 배열로 구성 되어있으므로 JSON 배열생성
+            JSONArray jArr = json.getJSONArray("rows");
+            String a = "";
+            for (int i=0; i<jArr.length(); i++){
+
+                //i번째 배열 할당
+                json = jArr.getJSONObject(i);
+                temp.put("id_auto",json.getString("id_auto"));
+
+            }
+
+        }catch (JSONException e)
+        {
+            String error = e.getMessage();
+        }
+
+        return temp;
+
+    }
+
     private class CommunicationAsyncTask extends AsyncTask<String, Void, String> {
         ProgressDialog progressDialog = new ProgressDialog(context);
         @Override
@@ -549,6 +602,10 @@ public class CommunicationWithServer {
             else if(communicationType.equals("register_input"))
             {
                 serverUrl = "http://gyeongmo.synology.me/amazo/admin/register_input.php";
+            }
+            else if(communicationType.equals("register_packing"))
+            {
+                serverUrl = "http://gyeongmo.synology.me/amazo/admin/register_packing.php";
             }
             else if(communicationType.equals("input"))
             {
